@@ -1,11 +1,23 @@
+/**
+ * @file main.cpp
+ * @author Damian Płaskowicki (damian.plaskowicki.stud@pw.edu.pl)
+ * @brief Solar panel simulator with remote control DC supply
+ * @version 0.1
+ * @date 2022-05-31
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
 #include <Arduino.h>
 #include "../include/uart.h"
 #include "../include/sensors.h"
 
-/*** SWITCHES
-LOG - log voltage
-WORK - send voltage to UART
-*/
+/**
+ * @brief define or remove correct line to switch any mode {#define [param]}
+ * @param LOG define to enable logging
+ * @param WORK define to enable sending voltage to UART
+ *
+ */
 #define WORK
 
 /*** UART params ***/
@@ -22,7 +34,7 @@ void setup()
 
 void loop()
 {
-  int voltage = get_voltage(VOLT_SENSOR);
+  int voltage = CalcVoltage(VOLT_SENSOR);
 
 #ifdef WORK
   uart_transmit(voltage);
