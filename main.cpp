@@ -34,7 +34,7 @@ void setup()
 
 void loop()
 {
-  int voltage = CalcVoltage(VOLT_SENSOR);
+  int voltage = GetVoltage(VOLT_SENSOR);
 
 #ifdef WORK
   uart_transmit(voltage);
